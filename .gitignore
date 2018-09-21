@@ -1,0 +1,4 @@
+# exclude python caches
+__pycache__/
+
+POUBELLE/
