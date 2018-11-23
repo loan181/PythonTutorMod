@@ -20,20 +20,26 @@ import json
 import pg_logger
 
 
-@route('/web_exec_<name:re:.+>.py')
-@route('/LIVE_exec_<name:re:.+>.py')
+"""
 @route('/viz_interaction.py')
 @route('/syntax_err_survey.py')
 @route('/runtime_err_survey.py')
 @route('/eureka_survey.py')
 @route('/error_log.py')
+"""
+@route('/web_exec_<name:re:.+>.py')
+@route('/LIVE_exec_<name:re:.+>.py')
 def dummy_ok(name=None):
     return 'OK'
+
 
 @route('/<filepath:path>')
 def index(filepath):
     return static_file(filepath, root='.')
 
+@route('/')
+def default():
+	return static_file("index.html", root='.')
 
 # Note that this will run either Python 2 or 3, depending on which
 # version of Python you used to start the server, REGARDLESS of which
